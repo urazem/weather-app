@@ -1,0 +1,23 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="wrapper">
+    <div class="container">
+      <div class="row">
+        <div>
+          <p>Местоположение: {{data.words[0]}}</p>
+          <input type="text" class="city-input" placeholder="Город" 
+          [(ngModel)]="cityName" (keyup.enter)="search()">
+          <button (click) = "search(cityName)">Получить погоду </button>
+      </div>
+          <div *ngIf="response" class="infoWeath">
+              <p>Местоположение: {{data.words[0]}}</p>
+              <p>Описание: {{response.weather[0].description}}</p>
+              <p>Температура: {{response.main.temp}} ℃</p>  
+              <div>
+                <p>Осадки: <img class="logo"  alt="nature picture" src="http://openweathermap.org/img/wn/{{response.weather[0].icon}}.png"></p>  
+                
+              </div>
+            </div>
+      </div>
+    </div> 
+</div>
+
